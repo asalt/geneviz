@@ -333,7 +333,7 @@ class FeatureTrack(Track):
         txt = self._draw_label(x=x, y=y, label=label, ax=ax)
         plt.draw()
 
-        bbox = txt.get_window_extent()
+        bbox = txt.get_window_extent(renderer=plt.gcf().canvas.get_renderer())
         dbox = bbox.transformed(ax.transData.inverted())
 
         txt.remove()
